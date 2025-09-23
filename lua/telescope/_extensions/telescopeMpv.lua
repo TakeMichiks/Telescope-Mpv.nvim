@@ -1,12 +1,10 @@
 local telescope_ok, telescope = pcall(require, 'telescope')
 if not telescope_ok then
-  vim.schedule(function() vim.notify('[YT DEBUG] Falta telescope.nvim', vim.log.levels.ERROR) end)
   return
 end
 
 local job_ok, job_lib = pcall(require, 'plenary.job')
 if not job_ok then
-  vim.schedule(function() vim.notify('[YT DEBUG] Falta plenary.nvim', vim.log.levels.ERROR) end)
   return
 end
 
@@ -95,7 +93,6 @@ local function parse_mpv_output(data)
   end
 end
 
-
 local function play_song(query, title)
   player_state.playing = true
   player_state.title = title or "Cargando: " .. (query:match("[^/]+$") or query:sub(1, 30))
@@ -129,7 +126,6 @@ local function play_song(query, title)
       parse_mpv_output(data)
     end),
     on_exit = vim.schedule_wrap(function(_, exit_code, signal)
-      vim.notify('[YT DEBUG] Job de mpv ha terminado con código: ' .. tostring(exit_code), vim.log.levels.INFO)
       player_state.playing = false
       player_state.jobid = nil
       player_state.title = "Not Playing"
@@ -147,11 +143,9 @@ local function play_song(query, title)
   local jobid = vim.fn.jobstart({"mpv", unpack(args)}, job_opts)
   if jobid > 0 then
     player_state.jobid = jobid
-    vim.notify('[YT DEBUG] Job de mpv iniciado con PID: ' .. tostring(player_state.jobid), vim.log.levels.INFO)
   else
     player_state.playing = false
     player_state.title = "Error al iniciar mpv"
-    vim.notify('[YT DEBUG] Error al iniciar job de mpv', vim.log.levels.ERROR)
     refresh_screen()
   end
 end
