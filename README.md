@@ -22,34 +22,24 @@ Una extensión de Telescope para buscar y reproducir música de YouTube directam
 ## 📦 Instalación
 
 ### Con lazy.nvim
-
 {
-'nvim-telescope/telescope.nv
-m', tag =
-0.1.6', depe
-dencies = { 'nvi
--lua/plenary.nvim', 'Take
-ic
-iks/Telescope-Mpv.n
+'nvim-telescope/telescope.nvim',
+tag = '0.1.6',
+dependencies = {
+'nvim-lua/plenary.nvim',
+'TakeMichiks/Telescope-Mpv.nvim',
+},
+config = function()
+require('telescope').load_extension('telescopeMpv')
 
 text
-    telescope.setup({
-        extensions = {
-            telescopeMpv = {
-                -- Configuración opcional
-            }
-        }
-    })
-    
-    -- Cargar la extensión
-    telescope.load_extension('telescopeMpv')
-    
-    -- Mapas de teclas
-    vim.keymap.set('n', '<leader>ym', '<cmd>Take<cr>', { desc = "YouTube: Buscar canción" })
-    vim.keymap.set('n', '<leader>yp', '<cmd>Takep<cr>', { desc = "YouTube: Buscar playlist" })
-    vim.keymap.set('n', '<leader>yt', '<cmd>MpvToggle<cr>', { desc = "YouTube: Reproductor alternativo" })
+    vim.keymap.set('n', '<leader>ym', '<cmd>Take<cr>', { desc = "YouTube: Buscar" })
+    vim.keymap.set('n', '<leader>yp', '<cmd>Takep<cr>', { desc = "YouTube: Playlist" })
+    vim.keymap.set('n', '<leader>yt', '<cmd>MpvToggle<cr>', { desc = "Toggle Player" })
 end,
 }
+
+text
 
 text
 
