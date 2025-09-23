@@ -21,41 +21,38 @@ Una extensión de Telescope para buscar y reproducir música de YouTube directam
 
 ## 📦 Instalación
 
-### Con lazy.nvim
+## Con lazy.nvim
+
+```lua
 {
-'nvim-telescope/telescope.nvim',
-tag = '0.1.6',
-dependencies = {
-'nvim-lua/plenary.nvim',
-'TakeMichiks/Telescope-Mpv.nvim',
-},
-config = function()
-require('telescope').load_extension('telescopeMpv')
-
-text
-    vim.keymap.set('n', '<leader>ym', '<cmd>Take<cr>', { desc = "YouTube: Buscar" })
-    vim.keymap.set('n', '<leader>yp', '<cmd>Takep<cr>', { desc = "YouTube: Playlist" })
-    vim.keymap.set('n', '<leader>yt', '<cmd>MpvToggle<cr>', { desc = "Toggle Player" })
-end,
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.6',
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'TakeMichiks/Telescope-Mpv.nvim',
+    },
+    config = function()
+        require('telescope').load_extension('telescopeMpv')
+        
+        vim.keymap.set('n', '<leader>ym', '<cmd>Take<cr>', { desc = "YouTube: Buscar" })
+        vim.keymap.set('n', '<leader>yp', '<cmd>Takep<cr>', { desc = "YouTube: Playlist" })
+        vim.keymap.set('n', '<leader>yt', '<cmd>MpvToggle<cr>', { desc = "Toggle Player" })
+    end,
 }
-
-text
-
-text
-
+```
 ### Con packer.nvim
-
+```
 use {
-'nvim-telescope/telescope.nv
-m', requ
-res = { 'nvim-lu
-/plenary.nvim', 'TakeMic
-ik
-/Telescope-Mpv.nvim
-}, config = function() require('te
-esc
-
-text
+    'nvim-telescope/telescope.nvim',
+    requires = {
+        'nvim-lua/plenary.nvim',
+        'TakeMichiks/Telescope-Mpv.nvim'
+    },
+    config = function()
+        require('telescope').load_extension('telescopeMpv')
+    end
+}
+```
 
 ## ⚙️ Configuración
 
