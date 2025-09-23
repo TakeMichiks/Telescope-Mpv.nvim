@@ -1,0 +1,27 @@
+## 🚀 Uso
+
+### Comandos Disponibles
+
+| Comando | Descripción |
+|---------|-------------|
+| `:Take` | Buscar música individual en YouTube |
+| `:Takep` | Agregar URL de playlist |
+| `:MpvToggle` | Mostrar/ocultar reproductor |
+| `:Telescope telescopeMpv single` | Buscar con Telescope |
+| `:Telescope telescopeMpv playlist` | Buscar playlist con Telescope |
+
+### Controles del Reproductor
+
+Cuando el reproductor esté visible:
+
+| Tecla | Acción |
+|-------|--------|
+| `q` | Cerrar reproductor |
+| `p` | Pausar/Reanudar |
+| `m` | Silenciar/Desilenciar |
+| `>` | Avanzar 10 segundos |
+| `<` | Retroceder 10 segundos |
+| `+` | Subir volumen |
+| `-` | Bajar volumen |
+
+### Mapas de Teclas por Defecto
